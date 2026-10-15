@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Owl Sales Ops Scripts</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: markdown-viewer look; text column ~640px, tables break out wider */
+:root{--bg:#FFFFFF;--fg:#141413;--muted:#6B6A66;--line:#E6E5E1;--th:#F5F5F3;--code:#F3F3F1;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1F1E1D;--fg:#F0EFEA;--muted:#A6A49D;--line:#3A3936;--th:#2A2927;--code:#2D2C2A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1F1E1D;--fg:#F0EFEA;--muted:#A6A49D;--line:#3A3936;--th:#2A2927;--code:#2D2C2A;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:400 19px/1.65 var(--serif);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:64px 96px;-webkit-font-smoothing:antialiased}
+main{max-width:860px;margin:0 auto}
+main>*{max-width:640px;margin-left:auto;margin-right:auto}
+main>.tw{max-width:860px}
+h1{font:600 40px/1.2 var(--serif);letter-spacing:-.01em;margin:0 auto 12px;text-wrap:balance}
+h2{font:400 31px/1.25 var(--serif);margin:56px auto 14px;text-wrap:balance}
+h3{font:600 23px/1.3 var(--serif);margin:44px auto 12px;text-wrap:balance}
+p{margin:0 auto 18px}
+ul,ol{padding-left:26px;margin:0 auto 18px} li{margin:4px 0}
+hr{border:0;border-top:1px solid var(--line);margin:44px auto}
+strong{font-weight:600}
+em{font-style:italic}
+code{font:15px/1 var(--mono);background:var(--code);border:1px solid var(--line);border-radius:5px;padding:3px 6px}
+blockquote{margin:0 auto 18px;padding:2px 0 2px 18px;border-left:3px solid var(--line);color:var(--muted)}
+blockquote p{margin:0}
+.tw{overflow-x:auto;margin:8px auto 28px;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font:400 17px/1.5 var(--serif);font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:13px 18px;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--th);font-weight:600;border-bottom:2px solid var(--line)}
+tr:last-child td{border-bottom:0}
+@media (max-width:560px){body{font-size:17px;padding-block:32px 64px}h1{font-size:30px}h2{font-size:25px}h3{font-size:20px}table{font-size:15px}th,td{padding:10px 12px}}
+</style>
+</head>
+<body>
+<main>
+<h1>Owl · Sales Ops — Conversation Scripts</h1>
+<p>Two complete conversation threads between Owl and two WisdomAI user types in Sales ops. Each thread follows the same four-point timeline and covers three Sales ops topics.</p>
+<h2>The three topics</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Topic</th>
+<th>What it covers</th>
+<th>Why it fits its moment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>Sales pipeline</strong></td>
+<td>Pipeline created, stage movement, coverage, slipped and stalled deals, data hygiene</td>
+<td>Pipeline changes every day, so it belongs in the daily brief</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Forecast &amp; commit</strong></td>
+<td>Rep calls vs. manager calls vs. a data-driven model, commit changes, forecast submissions</td>
+<td>The forecast call is a weekly ritual, so it belongs in the weekly report</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Quota attainment &amp; capacity</strong></td>
+<td>Attainment spread, rep ramp, territory balance, how much quota next quarter&#39;s team can actually carry</td>
+<td>Quotas and headcount get set once a quarter, so it belongs in the QBR</td>
+</tr>
+</tbody></table></div>
+<h2>Timeline</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Moment</th>
+<th>When</th>
+<th>Topic</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Daily brief</td>
+<td>Mon, Oct 19 2026</td>
+<td>Topic 1 · Sales pipeline</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Weekly report</td>
+<td>Fri, Oct 23 2026</td>
+<td>Topic 2 · Forecast &amp; commit</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Catch-up</td>
+<td>Nov 2026</td>
+<td>All three topics, whatever changed while the user was away</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Quarterly business review</td>
+<td>Wed, Jan 6 2027</td>
+<td>Topic 3 · Quota attainment &amp; capacity</td>
+</tr>
+</tbody></table></div>
+<p><strong>Company (fictional):</strong> Northwind Cloud, a B2B SaaS company with ~600 employees. The North America sales team has 24 AEs in 3 regions (East, Central, West).</p>
+<p><strong>Owl&#39;s connected sources:</strong> Salesforce, Gong, Google Calendar, Gmail, Slack, Notion, plus the Wisdom Sales domain (metrics, reviewed queries, agents, live apps).</p>
+<p><strong>Shared thread:</strong> the two users run into each other. Nina&#39;s hygiene agent cleans up the data behind Marcus&#39;s forecast. Riya&#39;s resignation hits Marcus&#39;s pipeline and lands as Nina&#39;s reassignment job. In the QBR, Marcus&#39;s Q1 quota number runs into Nina&#39;s capacity model.</p>
+<p>Notation: <code>[Button]</code> = action chip · ▸ = rich card (app, agent) · <em>italics</em> = system/status line.</p>
+<hr>
+<h2>Conversation A · Admin</h2>
+<p><strong>Nina Alvarez</strong>: RevOps Manager and admin of the Wisdom Sales domain. Owns Salesforce data quality, sales metric definitions, the forecast process, territories and quota models. Builds the apps and agents the sales team uses.</p>
+<hr>
+<h3>A1 · Daily brief: Mon, Oct 19 · 8:00 AM · Topic 1: Sales pipeline</h3>
+<p><strong>Owl</strong>
+Good morning, Nina. Pipeline looks fine at the top line, but the data underneath it has problems that will show up in Marcus&#39;s 9:00 review.</p>
+<p><strong>Pipeline (last 24h)</strong></p>
+<ul>
+<li>New pipeline created: <strong>$640K</strong> vs. <strong>$900K</strong> daily target (71%)</li>
+<li>Moved to Commit: <strong>3 deals, +$610K</strong></li>
+<li>Slipped to Q1: <strong>2 deals, −$315K</strong></li>
+<li>Q4 coverage: <strong>2.8×</strong> vs. 3.0× target</li>
+</ul>
+<p><strong>Data problems</strong></p>
+<ol>
+<li><strong>14 open opportunities over $25K are missing a close date or amount.</strong> They add up to $1.1M that&#39;s being left out of coverage.</li>
+<li><strong>3 deals jumped from Discovery straight to Negotiation</strong>, skipping Evaluation. Two of them have no Gong call logged.</li>
+<li><strong>Salesforce sync ran 6 hours late overnight.</strong> Everything above is current as of 5:40 AM.</li>
+</ol>
+<p><code>[Show missing fields]</code> <code>[Show stage skips]</code> <code>[Check sync]</code></p>
+<hr>
+<p><strong>Nina</strong>
+Who&#39;s skipping stages?</p>
+<p><strong>Owl</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Deal</th>
+<th>Owner</th>
+<th>Amount</th>
+<th>Jump</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Brightline</td>
+<td>Dev Shah</td>
+<td>$290K</td>
+<td>Discovery → Negotiation</td>
+<td>Pricing call on Gong Oct 16, legit</td>
+</tr>
+<tr>
+<td>Halvorsen</td>
+<td>Riya Menon</td>
+<td>$120K</td>
+<td>Discovery → Negotiation</td>
+<td>No call, no email since Oct 2</td>
+</tr>
+<tr>
+<td>Pacific Freight</td>
+<td>Riya Menon</td>
+<td>$85K</td>
+<td>Discovery → Negotiation</td>
+<td>No call, no email since Sep 28</td>
+</tr>
+</tbody></table></div>
+<p>Brightline looks real: the team just skipped updating the stage. <strong>Both of Riya&#39;s deals have no activity behind them.</strong> That&#39;s $205K of Q4 commit you can&#39;t verify.</p>
+<p><code>[Message Riya&#39;s manager]</code> <code>[Fix Brightline stage]</code></p>
+<hr>
+<p><strong>Nina</strong>
+Message her manager. And I&#39;m tired of chasing missing fields. Build an agent that nudges reps to fix them.</p>
+<p><strong>Owl</strong>
+<em>Sent to Jess (Central region manager).</em></p>
+<p>▸ <strong>Agent · Pipeline Hygiene</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Checks</td>
+<td>Daily at 9:00 AM</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td>Open opps over <strong>$25K</strong> missing close date, amount, next step or stage evidence</td>
+</tr>
+<tr>
+<td>Sends</td>
+<td>One Slack DM per rep with only their deals and a direct link to fix each field</td>
+</tr>
+<tr>
+<td>Escalates</td>
+<td>If a deal is still broken after 3 days, it goes to the rep&#39;s manager</td>
+</tr>
+</tbody></table></div>
+<p>I set the threshold at $25K on purpose. Including every deal would send about 140 DMs a day, mostly for $5K deals, and reps would mute it within a week. At $25K it&#39;s about 15 a day.</p>
+<p><code>[Activate]</code> <code>[Change threshold]</code></p>
+<hr>
+<p><strong>Nina</strong>
+Activate. Add a hygiene tab to Marcus&#39;s pipeline review app so managers see it on Monday.</p>
+<p><strong>Owl</strong>
+<em>Agent active · Updating live app…</em></p>
+<p>▸ <strong>Live App · Weekly Sales Pipeline Review</strong> (updated)
+New tab: <strong>Data Hygiene</strong>, with one row per region showing missing fields, stage skips and days since last fix. The current count is visible to managers, but individual rep names only show up for deals older than 3 days. Calling out reps on day one would make the tab a blame board.</p>
+<p><code>[Open app]</code></p>
+<hr>
+<h3>A2 · Weekly report: Fri, Oct 23 · 4:00 PM · Topic 2: Forecast &amp; commit</h3>
+<p><strong>Owl</strong>
+Your forecast week, Nina.</p>
+<p><strong>Headline:</strong> the three forecast numbers have drifted $900K apart, and most of the gap comes from one region.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Q4 Commit</th>
+<th>Change WoW</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Sum of rep calls</td>
+<td><strong>$4.9M</strong></td>
+<td>+$400K</td>
+</tr>
+<tr>
+<td>Sum of manager calls</td>
+<td><strong>$4.3M</strong></td>
+<td>+$200K</td>
+</tr>
+<tr>
+<td>Owl&#39;s data model</td>
+<td><strong>$4.0M</strong></td>
+<td>+$100K</td>
+</tr>
+</tbody></table></div>
+<p><strong>Where the gap is</strong></p>
+<ul>
+<li><strong>West region</strong>: reps called $1.9M, the model says $1.3M. West has over-called by an average of 18% for the last 3 quarters.</li>
+<li>East and Central are within 5% of the model.</li>
+</ul>
+<p><strong>Forecast process</strong></p>
+<ul>
+<li>Submissions: <strong>21 of 24 reps</strong> submitted on time. 3 managers did not roll up their teams (West, again).</li>
+<li>Commit deals that changed close date this week: <strong>6</strong> ($1.2M)</li>
+</ul>
+<p><strong>Hygiene agent, week 1:</strong> missing-field deals went from <strong>14 to 6</strong>.</p>
+<p><code>[Show West deals]</code> <code>[How is the model calculated?]</code> <code>[Automate the forecast pack]</code></p>
+<hr>
+<p><strong>Nina</strong>
+How is your model calculated? Leadership will ask.</p>
+<p><strong>Owl</strong>
+For each open deal:</p>
+<ol>
+<li><strong>Stage probability</strong> from Northwind&#39;s own last 6 quarters (not Salesforce defaults). Negotiation closes at 61% here, not the default 80%.</li>
+<li><strong>Activity adjustment.</strong> No logged activity for 14+ days cuts the probability in half.</li>
+<li><strong>Close-date history.</strong> Every time the close date has moved, the probability drops another 15%.</li>
+</ol>
+<p>Last 3 quarters, the model at week 6 was within <strong>±6%</strong> of actual. Manager calls were within ±9%, and rep calls ±17%.</p>
+<p>One caution: don&#39;t show leadership the model as &quot;the forecast.&quot; It&#39;s a check on the managers&#39; call, not a replacement. If it becomes the number, managers stop owning their forecast.</p>
+<hr>
+<p><strong>Nina</strong>
+Fair. Make the Friday forecast pack automatic, posted to #sales-leadership.</p>
+<p><strong>Owl</strong>
+▸ <strong>Agent · Weekly Forecast Pack</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Schedule</td>
+<td>Fridays, 7:00 AM → #sales-leadership</td>
+</tr>
+<tr>
+<td>Sections</td>
+<td>Manager call (headline) · rep call and model shown as checks · region gaps over 10% · commit deals that moved</td>
+</tr>
+<tr>
+<td>Submissions</td>
+<td>Lists missing submissions by manager, not by rep</td>
+</tr>
+<tr>
+<td>Reminder</td>
+<td>Thursday 3:00 PM DM to any manager who hasn&#39;t submitted</td>
+</tr>
+</tbody></table></div>
+<p>The first pack goes out next Friday. I can send you a preview Thursday evening.</p>
+<p><code>[Activate]</code> <code>[Preview first]</code></p>
+<hr>
+<p><strong>Nina</strong>
+Activate, and send me the preview Thursday.</p>
+<p><strong>Owl</strong>
+<em>Agent active · Preview scheduled for Thu, Oct 29, 6:00 PM.</em></p>
+<hr>
+<h3>A3 · Catch-up: Mon, Nov 9 · 9:15 AM · All topics</h3>
+<p><em>(Nina was at Salesforce admin certification training Nov 2–6.)</em></p>
+<p><strong>Nina</strong>
+I was in training all last week. What do I need to know?</p>
+<p><strong>Owl</strong>
+Welcome back. I went through 248 Slack messages, 41 emails, 2 forecast packs and the Salesforce audit log.</p>
+<p><strong>🔴 Needs you this week (2)</strong></p>
+<ol>
+<li><strong>Riya Menon resigned</strong> (last day Nov 13). <strong>23 open opportunities worth $1.3M</strong> need a new owner before Friday, or they&#39;ll drop out of every rep&#39;s forecast.</li>
+<li><strong>12 discount approvals are stuck in CPQ.</strong> The approval rule still routes to a manager who moved to Partnerships. The oldest has waited 6 days.</li>
+</ol>
+<p><strong>🟡 Decided without you (2)</strong></p>
+<ul>
+<li>Marcus extended the Q4 SPIFF (extra $2K for any multi-year deal) through Dec 31. <strong>Comp plan docs in Notion still show the old end date.</strong></li>
+<li>Jess moved Brightline from Commit to Best Case in the forecast.</li>
+</ul>
+<p><strong>⚪ FYI</strong></p>
+<ul>
+<li>Forecast pack posted twice. West&#39;s gap with the model shrank from 46% to 22%.</li>
+<li>Hygiene agent: missing-field deals are down to <strong>4</strong>.</li>
+<li>New pipeline last week: $4.1M (target $4.5M).</li>
+</ul>
+<p><code>[Reassign Riya&#39;s deals]</code> <code>[Fix CPQ routing]</code> <code>[Update SPIFF doc]</code></p>
+<hr>
+<p><strong>Nina</strong>
+Start with Riya&#39;s deals. How would you split them?</p>
+<p><strong>Owl</strong>
+I&#39;d split by territory first, then by how much each rep can take on.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Goes to</th>
+<th>Deals</th>
+<th>Amount</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Sam Patel</td>
+<td>9</td>
+<td>$410K</td>
+<td>Same Central territory, lowest current pipeline (1.9× quota)</td>
+</tr>
+<tr>
+<td>Aisha Khan</td>
+<td>8</td>
+<td>$350K</td>
+<td>Same territory, ramped, 2.2× quota</td>
+</tr>
+<tr>
+<td>Jess (manager)</td>
+<td>2</td>
+<td>$380K</td>
+<td>Halvorsen and Initech are enterprise accounts mid-negotiation. A handoff to a rep risks losing them.</td>
+</tr>
+<tr>
+<td>Close as lost</td>
+<td>4</td>
+<td>$160K</td>
+<td>No activity in 60+ days. Keeping them only inflates pipeline.</td>
+</tr>
+</tbody></table></div>
+<p>One thing I&#39;d check with Jess first: Halvorsen is one of the 2 deals with no activity that we flagged on Oct 19. It may belong in the &quot;close&quot; row.</p>
+<p><code>[Send plan to Jess]</code> <code>[Apply as-is]</code></p>
+<hr>
+<p><strong>Nina</strong>
+Send it to Jess. Fix the CPQ routing too: send those approvals to Marcus until we hire a replacement.</p>
+<p><strong>Owl</strong>
+<em>Sent reassignment plan to Jess · Updated CPQ approval rule: Central discounts over 15% → Marcus Lee.</em></p>
+<p>The 12 stuck approvals are now in Marcus&#39;s queue. I let him know in Slack why 12 arrived at once.</p>
+<hr>
+<h3>A4 · Quarterly business review: Wed, Jan 6 2027 · 10:00 AM · Topic 3: Quota attainment &amp; capacity</h3>
+<p><strong>Nina</strong>
+I need the Q4 attainment and Q1 capacity section for Marcus&#39;s QBR. Draft it.</p>
+<p><strong>Owl</strong>
+Here&#39;s the draft. The team number is good, but it hides a spread that matters for Q1 quota-setting, so I&#39;ve led with the spread.</p>
+<p><strong>1. Attainment spread (Q4)</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Team attainment</td>
+<td><strong>106%</strong> ($5.3M vs. $5.0M)</td>
+</tr>
+<tr>
+<td>Reps at or above 100% of quota</td>
+<td><strong>14 of 24 (58%)</strong>, target is 65%</td>
+</tr>
+<tr>
+<td>Reps below 70%</td>
+<td><strong>5</strong></td>
+</tr>
+<tr>
+<td>Share of bookings from the top 5 reps</td>
+<td><strong>47%</strong></td>
+</tr>
+</tbody></table></div>
+<p><strong>2. Ramp</strong></p>
+<ul>
+<li>Reps hired in Q2 took <strong>7.2 months</strong> to reach full productivity. The capacity plan assumed 5.</li>
+<li>That gap alone cost an estimated <strong>$420K</strong> of Q4 bookings.</li>
+</ul>
+<p><strong>3. Territory balance</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Region</th>
+<th>Share of reps</th>
+<th>Share of pipeline</th>
+<th>Attainment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>East</td>
+<td>38%</td>
+<td>35%</td>
+<td>104%</td>
+</tr>
+<tr>
+<td>Central</td>
+<td>40%</td>
+<td>31%</td>
+<td>98%</td>
+</tr>
+<tr>
+<td>West</td>
+<td>22%</td>
+<td><strong>34%</strong></td>
+<td>121%</td>
+</tr>
+</tbody></table></div>
+<p>West has more pipeline than its reps can work. That&#39;s also part of why it over-calls the forecast.</p>
+<p><strong>4. Q1 capacity</strong></p>
+<ul>
+<li>Ramped AEs on Jan 1: <strong>21</strong> (24 minus Riya, minus 2 still ramping)</li>
+<li>At Q4&#39;s average productivity, the team can carry about <strong>$5.1M</strong> of Q1 quota.</li>
+</ul>
+<p><strong>⚠️ What I&#39;d challenge before Friday</strong></p>
+<ul>
+<li><strong>Don&#39;t headline &quot;106%.&quot;</strong> 42% of reps missed. If the CRO only sees 106%, the Q1 quota goes up across the board and the bottom 5 fall further behind.</li>
+<li><strong>Ramp time is the real story.</strong> If it stays at 7.2 months, every Q1 hire contributes almost nothing until Q3.</li>
+</ul>
+<p><code>[Build capacity app]</code> <code>[Send draft to Marcus]</code></p>
+<hr>
+<p><strong>Nina</strong>
+Marcus wants to set Q1 quota at $5.6M. What does that require?</p>
+<p><strong>Owl</strong>
+To carry $5.6M, the team needs about <strong>$500K more capacity</strong> than it has. Options:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Adds</th>
+<th>Catch</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hire 2 AEs by Feb 1</td>
+<td>~$150K in Q1 (ramping)</td>
+<td>Not enough on its own in Q1, matters for Q2</td>
+</tr>
+<tr>
+<td>Move 4 West accounts to Central</td>
+<td>~$200K</td>
+<td>West reps lose pipeline they&#39;ve already built</td>
+</tr>
+<tr>
+<td>Cut ramp time to 5 months (enablement program)</td>
+<td>~$180K</td>
+<td>Only helps if it works. Unproven.</td>
+</tr>
+<tr>
+<td>Set quota at $5.1M</td>
+<td>Matches capacity</td>
+<td>CRO may push back</td>
+</tr>
+</tbody></table></div>
+<p>None of the options gets to $5.6M on its own. $5.6M needs at least two of them, and all of them carry risk. I&#39;d present $5.1M as the base case and $5.6M as the stretch case with the hires attached.</p>
+<p><code>[Add to QBR]</code></p>
+<hr>
+<p><strong>Nina</strong>
+Add it. Build the capacity model as a live app so Marcus can play with the numbers, and don&#39;t make me rebuild it next quarter.</p>
+<p><strong>Owl</strong>
+▸ <strong>Live App · Q1 Sales Capacity Plan</strong>
+Tabs: Attainment spread · Ramp · Territory balance · Capacity model. On the Capacity model tab, Marcus can change headcount, ramp time and quota and see whether the plan holds. Shared with Marcus and the CRO.</p>
+<p>▸ <strong>Agent · Quarterly Capacity Review</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Schedule</td>
+<td>10 business days before each quarter ends</td>
+</tr>
+<tr>
+<td>Does</td>
+<td>Refreshes attainment, ramp and territory balance, then reruns the capacity model with current headcount</td>
+</tr>
+<tr>
+<td>Mid-quarter</td>
+<td>DMs you if a territory&#39;s pipeline share gets 10+ points away from its share of reps</td>
+</tr>
+</tbody></table></div>
+<p><code>[Activate both]</code></p>
+<hr>
+<p><strong>Nina</strong>
+Activate.</p>
+<p><strong>Owl</strong>
+<em>Live app shared · Agent active · Next capacity review: Mar 17, 2027.</em></p>
+<hr>
+<hr>
+<h2>Conversation B · Explorer</h2>
+<p><strong>Marcus Lee</strong>: VP Sales, North America. Business user, not SQL-literate. Runs the Monday pipeline review, owns the forecast call to the CRO, and sets regional quotas.</p>
+<hr>
+<h3>B1 · Daily brief: Mon, Oct 19 · 7:30 AM · Topic 1: Sales pipeline</h3>
+<p><strong>Owl</strong>
+Morning, Marcus. Pipeline review is at 9, so here&#39;s what moved over the weekend.</p>
+<ul>
+<li><strong>3 deals moved to Commit:</strong> Acme Logistics, Brightline, Kessler Health (<strong>+$610K</strong>)</li>
+<li><strong>2 slipped to Q1:</strong> Globex ($220K) and Umbra Retail ($95K)</li>
+<li><strong>Q4 coverage: 2.8×</strong> vs. 3.0× target</li>
+<li>New pipeline created yesterday: <strong>$640K</strong>, below the $900K daily target</li>
+</ul>
+<p><strong>One thing to know before the meeting:</strong> $205K of Riya&#39;s commit has no activity behind it. Nina flagged it this morning.</p>
+<p><strong>Today:</strong> 9:00 Pipeline review (you present) · 11:30 Acme renewal ($480K) · 4:00 1:1 with Jess</p>
+<p><code>[Open review app]</code> <code>[Why did Globex slip?]</code> <code>[Prep me for Acme]</code></p>
+<hr>
+<p><strong>Marcus</strong>
+Why did Globex slip?</p>
+<p><strong>Owl</strong>
+From Thursday&#39;s Gong call:</p>
+<ul>
+<li><strong>Their champion, Tom Becker, is leaving</strong> at the end of the month (31 minutes into the call)</li>
+<li><strong>Their CFO froze new-vendor spend</strong> through Q4</li>
+<li>Nobody on our side has met Tom&#39;s replacement</li>
+</ul>
+<p>The AE moved the close date to Feb 15 but hasn&#39;t logged a next step. An exec-to-exec email from you to their CFO, before Tom leaves, is the best way to keep the deal alive.</p>
+<p><code>[Draft exec email]</code></p>
+<hr>
+<p><strong>Marcus</strong>
+Draft it. Then give me what to say about pipeline creation. The CRO will ask why it&#39;s low.</p>
+<p><strong>Owl</strong></p>
+<blockquote>
+<p>Hi Karen, I know Q4 budgets are tight, and I heard Tom is moving on. I&#39;d like to keep our teams&#39; work from stalling in the handoff. Could we find 20 minutes before month-end to talk about a Q1 start that fits your planning cycle? — Marcus</p>
+</blockquote>
+<p><code>[Send from Gmail]</code> <code>[Edit]</code></p>
+<p><strong>On pipeline creation:</strong></p>
+<ul>
+<li>Month to date: <strong>$11.2M</strong> vs. $13.5M target (83%)</li>
+<li><strong>The gap is mostly outbound.</strong> Inbound is on target. SDR-sourced pipeline is down 31%, because 2 of the 6 SDRs moved to AE roles in September.</li>
+<li>Answer for the CRO: &quot;Inbound is healthy. The outbound gap comes from the SDR promotions, and backfills start Nov 2.&quot;</li>
+</ul>
+<p><code>[Add to my review notes]</code></p>
+<hr>
+<h3>B2 · Weekly report: Fri, Oct 23 · 7:00 AM · Topic 2: Forecast &amp; commit</h3>
+<p><strong>Owl</strong>
+Your forecast call to the CRO is due at 11. Here&#39;s where you stand.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Q4 Commit</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Your managers&#39; roll-up</td>
+<td><strong>$4.3M</strong></td>
+</tr>
+<tr>
+<td>Your reps&#39; calls</td>
+<td>$4.9M</td>
+</tr>
+<tr>
+<td>Owl&#39;s data model</td>
+<td>$4.0M</td>
+</tr>
+</tbody></table></div>
+<p><strong>What changed this week</strong></p>
+<ul>
+<li><strong>+$340K:</strong> Kessler Health signed</li>
+<li><strong>−$290K:</strong> Brightline legal redlines, now likely to close Dec, not Nov</li>
+<li><strong>6 commit deals changed close date</strong> ($1.2M total)</li>
+</ul>
+<p><strong>West is the gap.</strong> West reps called $1.9M. The model says $1.3M, and West has over-called by 18% for 3 quarters running.</p>
+<p><strong>Recommendation:</strong> call <strong>$4.3M</strong> (your managers&#39; number). It sits between the reps and the model, and managers have been the most accurate of the three over the last 3 quarters.</p>
+<p><code>[Show deal-by-deal]</code> <code>[Show West deals]</code></p>
+<hr>
+<p><strong>Marcus</strong>
+Add Initech. They told me they&#39;re signing. Call $4.7M.</p>
+<p><strong>Owl</strong>
+I&#39;d push back on Initech.</p>
+<ul>
+<li><strong>21 days with no logged activity</strong>, the longest of any commit-sized deal</li>
+<li>Close date has <strong>moved twice</strong> (Sep 30 → Oct 31 → Nov 30)</li>
+<li>No order form and no legal contact identified</li>
+</ul>
+<p>If they told you directly, that&#39;s real information, but none of it is in Salesforce or Gong. And $4.7M would be <strong>$700K above the model</strong>, which the CRO will see in Nina&#39;s forecast pack next Friday.</p>
+<p>Options:</p>
+<ol>
+<li>Call <strong>$4.3M</strong> and mention Initech as upside: &quot;verbal, Oct 23&quot;</li>
+<li>Call <strong>$4.7M</strong> with Initech in commit</li>
+</ol>
+<p><code>[Call $4.3M + Initech upside]</code> <code>[Call $4.7M]</code></p>
+<hr>
+<p><strong>Marcus</strong>
+$4.3M with Initech as upside. And I want to know right away when a commit deal changes, not on Friday.</p>
+<p><strong>Owl</strong>
+<em>Forecast submitted: Commit $4.3M · Upside: Initech $410K (verbal from Marcus, Oct 23).</em></p>
+<p>▸ <strong>Agent · Commit Change Alert</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Watches</td>
+<td>Every deal in Commit</td>
+</tr>
+<tr>
+<td>Alerts when</td>
+<td>Close date moves out of the quarter, amount drops 10%+, or no activity for 10 days</td>
+</tr>
+<tr>
+<td>Sends</td>
+<td>Slack DM to you, within an hour of the change</td>
+</tr>
+<tr>
+<td>Includes</td>
+<td>What changed, who changed it, and the new commit total</td>
+</tr>
+</tbody></table></div>
+<p>Based on this week, you&#39;d get about 2 alerts a week.</p>
+<p><code>[Activate]</code></p>
+<hr>
+<p><strong>Marcus</strong>
+Activate.</p>
+<p><strong>Owl</strong>
+<em>Agent active.</em> I also asked the Initech AE to log your conversation in Salesforce, so the model can count it next week.</p>
+<hr>
+<h3>B3 · Catch-up: Wed, Nov 4 · 5:40 PM · All topics</h3>
+<p><em>(Marcus spent Tue–Wed on-site at a customer and missed Wednesday&#39;s forecast call.)</em></p>
+<p><strong>Marcus</strong>
+I&#39;ve been on-site for two days. Catch me up in two minutes.</p>
+<p><strong>Owl</strong>
+Most urgent first:</p>
+<ol>
+<li><strong>Your CRO wants the Q4 commit number by noon tomorrow.</strong> Draft below.</li>
+<li><strong>Riya resigned.</strong> Her last day is Nov 13. She owns $1.3M of open pipeline, including Initech. Nina is putting together a reassignment plan with Jess.</li>
+<li><strong>Acme signed: $512K for 2 years</strong>, up from $480K. Posted in #wins.</li>
+</ol>
+<p><strong>Commit Change Alert fired twice</strong></p>
+<ul>
+<li>Brightline: Jess moved it from Commit to Best Case (legal redlines)</li>
+<li>Kessler expansion: budget owner is on PTO until Nov 16, close date pushed a week</li>
+</ul>
+<p><strong>Missed: forecast call (Wed 2 PM)</strong>, run by Jess in your place. No commitments were made for you.</p>
+<p><code>[Show commit draft]</code> <code>[Riya&#39;s deals]</code></p>
+<hr>
+<p><strong>Marcus</strong>
+Riya first. Which of her deals am I going to lose?</p>
+<p><strong>Owl</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Deal</th>
+<th>Amount</th>
+<th>Risk</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Initech</td>
+<td>$410K</td>
+<td><strong>High</strong></td>
+<td>Riya is the only person they&#39;ve met. Nina proposes Jess take it over directly.</td>
+</tr>
+<tr>
+<td>Halvorsen</td>
+<td>$120K</td>
+<td><strong>High</strong></td>
+<td>No activity since Oct 2. Probably already lost.</td>
+</tr>
+<tr>
+<td>Other 17 active deals</td>
+<td>$610K</td>
+<td>Low–medium</td>
+<td>Same territory, going to Sam and Aisha</td>
+</tr>
+<tr>
+<td>4 inactive deals</td>
+<td>$160K</td>
+<td>Close as lost</td>
+<td>No activity in 60+ days</td>
+</tr>
+</tbody></table></div>
+<p><strong>Most important:</strong> Initech. A call from you to their VP this week, introducing Jess before Riya leaves, would protect the handoff.</p>
+<p><code>[Draft intro to Initech]</code> <code>[Show commit draft]</code></p>
+<hr>
+<p><strong>Marcus</strong>
+Draft the intro. Then the commit number.</p>
+<p><strong>Owl</strong></p>
+<blockquote>
+<p>Hi Priyanka, Riya has been a great partner on this project, and she&#39;s moving on after next week. I want to introduce Jess, who leads our Central team and will own your account personally. Could the three of us take 20 minutes before Friday? — Marcus</p>
+</blockquote>
+<p><code>[Send from Gmail]</code></p>
+<p><strong>Commit draft:</strong> <strong>$4.2M</strong> · Best Case <strong>$5.0M</strong>
+Lower than your last call ($4.3M) because Brightline moved out. Initech stays as upside until the handoff to Jess is done.</p>
+<p><code>[Send to me]</code> <code>[Post to #sales-leadership]</code></p>
+<hr>
+<p><strong>Marcus</strong>
+Send the intro. Send the commit to me. I&#39;ll post it myself.</p>
+<p><strong>Owl</strong>
+<em>Intro sent · Commit draft in your DMs.</em></p>
+<hr>
+<h3>B4 · Quarterly business review: Wed, Jan 6 2027 · 8:00 AM · Topic 3: Quota attainment &amp; capacity</h3>
+<p><strong>Marcus</strong>
+Q4 QBR with the CRO is Friday. Build the attainment and Q1 quota section.</p>
+<p><strong>Owl</strong>
+Draft below, built from Nina&#39;s capacity model. The results are good. The part the CRO will press on is the Q1 quota.</p>
+<p><strong>Q4 results</strong></p>
+<ul>
+<li>Team attainment: <strong>106%</strong> ($5.3M vs. $5.0M)</li>
+<li><strong>14 of 24 reps</strong> hit quota, below the 65% target</li>
+<li><strong>Top 5 reps</strong> brought in 47% of bookings</li>
+<li>Initech closed Dec 18 for $410K, with Jess as owner. Your call on it was right.</li>
+</ul>
+<p><strong>Why the spread matters</strong></p>
+<ul>
+<li><strong>5 reps finished below 70%.</strong> 3 of them were still ramping.</li>
+<li>Ramp took <strong>7.2 months</strong> vs. 5 planned, an estimated $420K of lost bookings.</li>
+<li>West carries 34% of pipeline with 22% of reps.</li>
+</ul>
+<p><strong>Q1 quota</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Base case</th>
+<th>Stretch case</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Quota</td>
+<td><strong>$5.1M</strong></td>
+<td><strong>$5.6M</strong></td>
+</tr>
+<tr>
+<td>Requires</td>
+<td>Current team at Q4 productivity</td>
+<td>2 AE hires by Feb 1 + move 4 West accounts to Central</td>
+</tr>
+<tr>
+<td>Risk</td>
+<td>Low</td>
+<td>Medium–high: hires barely contribute in Q1</td>
+</tr>
+</tbody></table></div>
+<p><code>[Build live app]</code> <code>[Export to slides]</code></p>
+<hr>
+<p><strong>Marcus</strong>
+I want to commit to $5.6M. It shows ambition.</p>
+<p><strong>Owl</strong>
+You can, but here&#39;s what it means in practice:</p>
+<ul>
+<li>At $5.6M, the plan only works if <strong>both</strong> hires start by Feb 1 <strong>and</strong> the West accounts move without losing pipeline. Today there are zero offers out.</li>
+<li>If either slips, you&#39;re looking at roughly <strong>90% attainment</strong> in Q1, after a 106% quarter. That&#39;ll get read as a decline.</li>
+<li><strong>Committing $5.1M and beating it</strong> is a stronger story than committing $5.6M and missing it.</li>
+</ul>
+<p>If you want to show ambition, my suggestion: commit $5.1M, show $5.6M as the stretch case, and <strong>ask for the 2 hires on Friday</strong> as what unlocks the stretch.</p>
+<p><code>[Use base + stretch]</code> <code>[Commit $5.6M]</code></p>
+<hr>
+<p><strong>Marcus</strong>
+Base plus stretch, with the hiring ask. What else will the CRO ask?</p>
+<p><strong>Owl</strong></p>
+<ol>
+<li><strong>&quot;Why did 42% of reps miss in a 106% quarter?&quot;</strong> Have the ramp story ready, plus what changes in Q1 onboarding.</li>
+<li><strong>&quot;What happens to West?&quot;</strong> Moving 4 accounts takes pipeline away from your best-performing region. Name the accounts, and say how you&#39;ll handle those reps&#39; commission on deals already in flight.</li>
+<li><strong>&quot;Is this the same team that over-called the forecast?&quot;</strong> West&#39;s forecast gap went from 46% to 22% after the weekly forecast pack. Use that as evidence the process is working.</li>
+</ol>
+<p><code>[Add as backup slides]</code></p>
+<hr>
+<p><strong>Marcus</strong>
+Add them. Make it a live app the CRO can click into, and have it ready automatically next quarter.</p>
+<p><strong>Owl</strong>
+▸ <strong>Live App · NA Sales Q4 QBR</strong>
+Tabs: Results · Attainment spread · Ramp · Territories · Q1 quota (base vs. stretch) · Backup. The Q1 quota tab uses Nina&#39;s capacity model, so the CRO can test the hiring assumptions directly. Shared with the CRO.</p>
+<p>▸ <strong>Agent · Quarterly Sales Review</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Schedule</td>
+<td>Drafts 5 business days before quarter end, refreshes with final numbers on day 2 of the new quarter</td>
+</tr>
+<tr>
+<td>Includes</td>
+<td>Attainment spread, ramp, territory balance, base vs. stretch quota, expected questions</td>
+</tr>
+<tr>
+<td>Mid-quarter</td>
+<td>DMs you if attainment pace drops below 90% of plan by week 6</td>
+</tr>
+</tbody></table></div>
+<p><code>[Activate both]</code></p>
+<hr>
+<p><strong>Marcus</strong>
+Activate. Good work.</p>
+<p><strong>Owl</strong>
+<em>Live app shared with CRO · Agent active · Next draft: Mar 24, 2027.</em></p>
+
+</main>
+</body>
+</html>
